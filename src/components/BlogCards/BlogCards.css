@@ -1,0 +1,30 @@
+.blog-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.blog-wrapper {
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.img-container {
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: fit-content;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 10px;
+}
+.details-wrapper h2 {
+  font-size: 18px;
+}

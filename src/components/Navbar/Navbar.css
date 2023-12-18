@@ -1,0 +1,107 @@
+.navbar {
+  width: 100%;
+  position: relative;
+  background-color: white;
+  padding: 30px 0;
+}
+.nav-flex {
+  padding: 10px 5%;
+  border-bottom: 1px solid rgb(209, 187, 187);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: white;
+  height: fit-content;
+}
+.nav-ul li {
+  display: inline-block;
+  margin: 15px;
+  list-style: none;
+  font-size: 18px;
+}
+.active {
+  color: #ff5c35;
+  cursor: pointer;
+}
+.nav-link {
+  transition: all 0.5s;
+}
+.nav-link:hover {
+  color: #fe4b1f;
+}
+.logo-container a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 500;
+}
+.logo-container span {
+  color: #fe4b1f;
+}
+.login {
+  border: 0;
+  padding: 7px 15px;
+  border-radius: 5px;
+  background: #ff5c35;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+}
+.login:hover {
+  background-color: #f39077;
+}
+.toggle-menu {
+  cursor: pointer;
+}
+.nav-ul2,
+.menu-icon {
+  display: none;
+}
+.nav-ul2 li {
+  display: block;
+  margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+  .nav-ul,
+  .login {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+    font-size: 27px;
+  }
+  .login2 {
+    display: block;
+  }
+  .mobile-nav {
+    position: relative;
+    z-index: 20;
+  }
+  .nav-ul2 {
+    display: block;
+    padding-left: 30px;
+    font-size: 18px;
+    background-color: white;
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    top: -320px;
+    left: 0;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .nav-ul2.open-menu {
+    top: 0;
+  }
+}
