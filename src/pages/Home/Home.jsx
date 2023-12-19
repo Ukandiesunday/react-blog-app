@@ -5,7 +5,11 @@ import "./Home.css";
 const Home = () => {
   return (
     <div>
-      <Hero type={"welcome to our blog"} />
+      <Hero
+        title="welcome to our blog"
+        text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque dolor
+          natus temporibus sit id ipsum?"
+      />
       <BlogPage />
     </div>
   );

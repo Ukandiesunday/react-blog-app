@@ -3,11 +3,12 @@ import "./BlogPage.css";
 import axios from "axios";
 import BlogCards from "../BlogCards/BlogCards";
 const BlogPage = () => {
+  const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
   const [blogs, setBlogs] = useState([]);
-  // const [selectedQ, setSelectedQ] = useState(null);
+  const [query, setQuery] = useState(null);
   // const [pageSize, setPageSize] = useState(12);
   // const currentPage = 1;
-  let url = `https://newsapi.org/v2/everything?q=health&apiKey=1700df8f88bc4a42b1d5da018cdaa2bf`;
+  let url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,67 +22,26 @@ const BlogPage = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [query]);
 
-  const handleSelectedQ = (name) => {
-    // setSelectedQ(name);
+  const handleSelectedQ = (topic) => {
+    setQuery(topic);
   };
   console.log(blogs);
   return (
     <main>
+      <div className="btns-container">
+        <button onClick={() => handleSelectedQ("ai")}>AI</button>
+        <button onClick={() => handleSelectedQ("health")}>health</button>
+        <button onClick={() => handleSelectedQ("security")}>Security</button>
+        <button onClick={() => handleSelectedQ("tech")}>Tech</button>
+        <button onClick={() => handleSelectedQ("sports")}>Sports</button>
+      </div>
       <div className="blog-page">
         <BlogCards blogs={blogs} />
       </div>
-      <button onClick={() => handleSelectedQ("health")}>health</button>
     </main>
   );
 };
-
-// import React, { useEffect, useState } from 'react';
-
-// const NewsComponent = () => {
-//   const [newsData, setNewsData] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         // Replace 'YOUR_API_KEY' with your actual News API key
-//         const apiKey = 'YOUR_API_KEY';
-//         const apiUrl = 'https://newsapi.org/v2/top-headlines';
-//         const country = 'us'; // You can adjust parameters based on your needs
-
-//         const response = await fetch(`${apiUrl}?country=${country}&apiKey=${apiKey}`);
-
-//         if (response.ok) {
-//           const data = await response.json();
-//           setNewsData(data.articles);
-//         } else {
-//           console.error(`Error: ${response.status} - ${response.statusText}`);
-//         }
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//       }
-//     };
-
-//     fetchData();
-//   }, []); // Empty dependency array means this effect runs once when the component mounts
-
-//   return (
-//     <div>
-//       <h2>Top Headlines</h2>
-//       <ul>
-//         {newsData.map((article, index) => (
-//           <li key={index}>
-//             <a href={article.url} target="_blank" rel="noopener noreferrer">
-//               {article.title}
-//             </a>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default NewsComponent;
 
 export default BlogPage;
