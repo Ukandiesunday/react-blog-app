@@ -5,7 +5,7 @@ import BlogCards from "../BlogCards/BlogCards";
 const BlogPage = () => {
   const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
   const [blogs, setBlogs] = useState([]);
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
   // const [pageSize, setPageSize] = useState(12);
   // const currentPage = 1;
   let url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
