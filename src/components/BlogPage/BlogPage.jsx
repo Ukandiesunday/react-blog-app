@@ -1,28 +1,23 @@
 import { useState, useEffect } from "react";
 import "./BlogPage.css";
-import axios from "axios";
+
 import BlogCards from "../BlogCards/BlogCards";
+import axios from "axios";
 const BlogPage = () => {
-  const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
   const [blogs, setBlogs] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("ai");
   // const [pageSize, setPageSize] = useState(12);
   // const currentPage = 1;
-  let url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
+  const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
+  const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        // filter url by category
-
-        const data = await axios.get(url).then((res) => res.data);
-        setBlogs(data.articles);
-      } catch (error) {
-        console.log(error);
-      }
+      const data = await axios.get(url).then((res) => res.data);
+      setBlogs(data.articles);
     };
     fetchData();
-  }, [query]);
+  }, [query, url]);
 
   const handleSelectedQ = (topic) => {
     setQuery(topic);

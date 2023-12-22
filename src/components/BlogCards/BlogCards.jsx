@@ -8,11 +8,11 @@ const BlogCards = ({ blogs }) => {
   return (
     <div className="blog-cards">
       {filteredBlogs?.map((blog) => (
-        <div className="blog-wrapper" key={blog.title}>
-          <Link className="links" to={blog.url}>
+        <div className="blog-wrapper" key={blog?.title}>
+          <Link className="links" to={blog?.url}>
             <div className="img-container">
               <img src={blog.urlToImage} alt="" />
-              <p>{blog.description}</p>
+              <p>{blog?.description}</p>
               <p>{blog?.Author}</p>
               <p>{blog?.publishedAt}</p>
               <p>{blog?.content}</p>
