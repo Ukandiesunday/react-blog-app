@@ -6,7 +6,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarItems = [
-    { path: "/home", link: "Home" },
+    { path: "/", link: "Home" },
     { path: "/service", link: "Services" },
     { path: "/about", link: "About" },
     { path: "/blogs", link: "Blogs" },
